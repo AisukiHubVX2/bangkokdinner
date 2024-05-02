@@ -1,0 +1,61 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Bangkok Dinner - By : Aisuki Hub", "DarkTheme")
+local Tab = Window:NewTab("Main")
+
+local Section = Tab:NewSection("**Server Will Lag [100K EGGS], [1M EGGS]")
+Section:NewToggle("100K EGGS", "ues for make give player 100K EGGS!", function(state)
+    if state then
+        local Players = game:GetService("Players")
+ 
+local LocalPlayer = Players.LocalPlayer
+ 
+while true do task.wait(1)
+    local Passed, Statement = pcall(function()
+        for i,v in next, Players:GetPlayers() do
+            if v.Name ~= LocalPlayer.Name and v.Character and v.Character:FindFirstChild('RemoteEvent') then
+                v.Character:FindFirstChild('RemoteEvent'):FireServer({
+                    ["Other"] = {
+                        ["Egg"] = 100000,
+                    }
+                })
+            end
+        end
+    end)
+ 
+    if not Passed then
+        warn(Statement)
+    end
+end
+    else
+        print("Toggle Off")
+    end
+end)
+
+
+Section:NewToggle("1M EGGS", "ues for make give player 1M EGGS!", function(state)
+    if state then
+        local Players = game:GetService("Players")
+ 
+local LocalPlayer = Players.LocalPlayer
+ 
+while true do task.wait(1)
+    local Passed, Statement = pcall(function()
+        for i,v in next, Players:GetPlayers() do
+            if v.Name ~= LocalPlayer.Name and v.Character and v.Character:FindFirstChild('RemoteEvent') then
+                v.Character:FindFirstChild('RemoteEvent'):FireServer({
+                    ["Other"] = {
+                        ["Egg"] = 1000000,
+                    }
+                })
+            end
+        end
+    end)
+ 
+    if not Passed then
+        warn(Statement)
+    end
+end
+    else
+        print("Toggle Off")
+    end
+end)
